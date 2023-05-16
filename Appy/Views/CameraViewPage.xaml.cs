@@ -75,18 +75,9 @@ public partial class CameraViewPage : ContentPage
     protected override void OnAppearing()
     {
         Camera.IsVisible = true;
-        
-        MainThread.BeginInvokeOnMainThread( () =>
-        {
-            Camera.IsEnabled = true;
-            Camera.IsScanning = true;
-        });
-    }
-
-    private void Camera_Loaded(object sender, EventArgs e)
-    {
         Camera.IsEnabled = true;
         Camera.IsScanning = true;
+
     }
 
 }
