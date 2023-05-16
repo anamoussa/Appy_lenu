@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Appy.Views.CameraViewPage"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             xmlns:gv="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.Maui"
+             xmlns:handler="clr-namespace:Appy.Handlers"
+             Title="Camera">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <StackLayout>
+            <gv:CameraView x:Name="Camera"
+                       OnDetected="Camera_BarcodeDetected" VibrationOnDetected="True" 
+                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CaptureQuality="Highest"
+                       ScanInterval="100"  
+                       Loaded="Camera_Loaded"/>
+        </StackLayout>
+
+
+        <StackLayout  Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="0,30">
+            <Switch VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="45"  x:Name="FlashlightSwitch" Toggled="FlashlightSwitch_Toggled"
+                BackgroundColor="#77258b" ThumbColor="#fff"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+            <!-- bottom controls -->
+            <Button FontFamily="FASolid" 
+                    Text="Cancle"
+                 HorizontalOptions="CenterAndExpand"
+                    
+                    CharacterSpacing="4"
+                    TextColor="#fff" ToolTipProperties.Text="cancle"  Margin="20"
+                    CornerRadius="20"
+                            
+                 WidthRequest="200" HeightRequest="45"   Clicked="btn_cancel_Clicked" x:Name="btn_cancle"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
