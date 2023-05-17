@@ -4,7 +4,6 @@
 			 xmlns:conv="clr-namespace:Appy.Converters"
 			 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
 			 xmlns:vm="clr-namespace:Appy.ViewModels"
-             xmlns:handler="clr-namespace:Appy.Handlers"
 			 x:Class="Appy.Views.WebViewPage"
 			 x:DataType="vm:WebViewViewModel">
     <Grid RowDefinitions="*,Auto">
@@ -21,36 +20,14 @@
         </WebView>
         <ActivityIndicator IsVisible="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsLoading}" />
         <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="12">
-            <Button
-                FontFamily="FASolid" 
-                Text="{x:Static handler:FontAwesomeIcons.Backward}" 
-                ToolTipProperties.Text="Back View"
-				IsEnabled="{Binding Source={x:Reference webview}, Path=CanGoBack}"
-				Command="{Binding NavigateBackCommand}"
-				CommandParameter="{Binding Source={x:Reference webview}}" />
-            <Button
-				FontFamily="FASolid" 
-                Text="{x:Static handler:FontAwesomeIcons.Forward}" 
-                ToolTipProperties.Text="Forward View"
-				IsEnabled="{Binding Source={x:Reference webview}, Path=CanGoForward}"
-				Command="{Binding NavigateForwardCommand}"
-				CommandParameter="{Binding Source={x:Reference webview}}" />
-            <Button
-				FontFamily="FASolid" 
-                Text="{x:Static handler:FontAwesomeIcons.RotateRight}" 
-                ToolTipProperties.Text="Refresh View"
-				Command="{Binding RefreshPageCommand}"
-				CommandParameter="{Binding Source={x:Reference webview}}" />
-            <Button
-				FontFamily="FARegualrBrand" 
-                x:Name="browser_btn"
-                ToolTipProperties.Text="Back View"
-				Command="{Binding OpenInBrowserCommand}" />
-            <Button
-                FontFamily="FASolid" 
-                Text="{x:Static handler:FontAwesomeIcons.HouseChimney}"
-                ToolTipProperties.Text="Go Home"
-                Command="{Binding NavigateBackToDashBoardCommand}" />
+            <Button Text="Scan" Margin="7"
+                    FontSize="18"
+                    
+                ToolTipProperties.Text="Scan"
+                Clicked="btn_scan_Clicked" 
+                CharacterSpacing="4"
+                />
+
         </HorizontalStackLayout>
     </Grid>
 </ContentPage>

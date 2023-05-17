@@ -41,46 +41,6 @@ public partial class WebViewViewModel : BaseViewModel, IQueryAttributable
             await Shell.Current.DisplayAlert("Navigation failed", e.Result.ToString(), "OK");
         }
     }
-
-    [RelayCommand]
-    private void NavigateBack(WebView webView)
-    {
-        if (webView.CanGoBack)
-        {
-            webView.GoBack();
-        }
-    }
-
-    [RelayCommand]
-    private void NavigateForward(WebView webView)
-    {
-        if (webView.CanGoForward)
-        {
-            webView.GoForward();
-        }
-    }
-
-    [RelayCommand]
-    private void RefreshPage(WebView webView)
-    {
-        webView.Reload();
-    }
-
-    [RelayCommand]
-    private async void OpenInBrowser()
-    {
-        await Launcher.OpenAsync(Source);
-    }
-
-    [RelayCommand]
-    private void NavigateBackToDashBoard()
-    {
-        MainThread.BeginInvokeOnMainThread(async () =>
-        {
-            await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
-        });
-    }
-
     public async void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         var search = query["source"].ToString();

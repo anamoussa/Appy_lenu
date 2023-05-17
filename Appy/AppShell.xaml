@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:Appy"
     xmlns:views="clr-namespace:Appy.Views"
     xmlns:dashboardPages="clr-namespace:Appy.Views.Dashboard"
+    xmlns:icon="clr-namespace:Appy.Handlers"
     xmlns:models="clr-namespace:Appy.Models"
     Shell.TabBarIsVisible="False"
     xmlns:startupPages="clr-namespace:Appy.Views.Startup">
@@ -18,10 +19,22 @@
         Title="Login Page" FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
         ContentTemplate="{DataTemplate startupPages:LoginPage}"
         Route="LoginPage" />
-    <ShellContent
-        Title="Web View" FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
+    <ShellContent FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
         ContentTemplate="{DataTemplate views:WebViewPage}"
-        Route="WebViewPage" />
+        Route="WebViewPage" >
+        <Shell.TitleView>
+            <HorizontalStackLayout>
+                <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+
+                <Label FontFamily="FASolid" Grid.Row="0" Grid.Column="0"  Text="{x:Static icon:FontAwesomeIcons.Globe}" FontSize="30" TextColor="#FFF"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+                <Label Text="Web View" Grid.Row="0" Grid.Column="1" TextColor="#fff" FontSize="18" FontAttributes="Bold"
+                       HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" />
+                </Grid>
+            </HorizontalStackLayout>
+        </Shell.TitleView>
+    </ShellContent>
     <ShellContent
         Title="Camera" FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
         ContentTemplate="{DataTemplate views:CameraViewPage}"

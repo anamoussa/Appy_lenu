@@ -11,14 +11,20 @@ public partial class WebViewPage : ContentPage
     {
         InitializeComponent();
         BindingContext = viewModel;
-        string text = "";
-#if __ANDROID__
-        text= FontAwesomeIcons.Chrome;
-#elif __IOS__
-        text= FontAwesomeIcons.Safari;
-#else
-        text = FontAwesomeIcons.Edge;
-#endif
-        browser_btn.Text = text;
+    }
+
+    private async void btn_scan_Clicked(object sender, EventArgs e)
+    {
+
+        NetworkAccess accessType = Connectivity.Current.NetworkAccess;
+        if (accessType != NetworkAccess.Internet)
+        {
+            await Shell.Current.DisplayAlert("Uh Oh!", "No Internet!", "Ok");
+        }
+
+        else
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CameraViewPage()));
+        }
     }
 }

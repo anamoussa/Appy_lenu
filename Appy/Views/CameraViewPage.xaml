@@ -5,29 +5,25 @@
              xmlns:gv="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.Maui"
              xmlns:handler="clr-namespace:Appy.Handlers"
              Title="Camera">
-    <VerticalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <StackLayout>
+    <Grid RowDefinitions="*,Auto">
+
+        <VerticalStackLayout VerticalOptions="CenterAndExpand">
             <gv:CameraView x:Name="Camera"
                        OnDetected="Camera_BarcodeDetected" VibrationOnDetected="True" 
                        HorizontalOptions="FillAndExpand"  WidthRequest="300" HeightRequest="300"/>
-        </StackLayout>
-
-
-        <StackLayout  Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Margin="0,20">
-            <Switch VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="45"  x:Name="FlashlightSwitch" Toggled="FlashlightSwitch_Toggled"
+            <Switch VerticalOptions="StartAndExpand" HeightRequest="45"  x:Name="FlashlightSwitch" WidthRequest="300" Margin="0,20" Toggled="FlashlightSwitch_Toggled"
                 BackgroundColor="#77258b" ThumbColor="#fff"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
-            <!-- bottom controls -->
+        </VerticalStackLayout>
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="12">
             <Button FontFamily="FASolid" 
                     Text="Cancle"
                  HorizontalOptions="CenterAndExpand"
                     
-                    CharacterSpacing="4"
-                    TextColor="#fff" ToolTipProperties.Text="cancle"  Margin="20"
+                    CharacterSpacing="4" ToolTipProperties.Text="cancle"  Margin="20"
                     CornerRadius="20"
                             
                  WidthRequest="200" HeightRequest="45"   Clicked="btn_cancel_Clicked" x:Name="btn_cancle"/>
-        </StackLayout>
-    </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>

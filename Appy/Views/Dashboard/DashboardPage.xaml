@@ -2,23 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Appy.Views.Dashboard.DashboardPage"
-             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
-             xmlns:handler="clr-namespace:Appy.Handlers"
              Title="Home">
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Image x:Name="imgQr" Aspect="AspectFill"  Source="qr_img.svg" />
+    
 
-        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
-            <!-- bottom controls -->
-            <Button FontFamily="FASolid" 
-                    Text="Scan"
-                 HorizontalOptions="CenterAndExpand"
+    <Grid RowDefinitions="*,Auto">
+       <Image x:Name="imgQr" Aspect="AspectFit"  Source="qr_img.svg" />
+        <!--<ActivityIndicator IsVisible="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsLoading}" />-->
+        <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="12">
+            <Button Text="Scan" Margin="10"
+                    FontSize="20"
                     
-                    CharacterSpacing="7"
-                    TextColor="#fff" ToolTipProperties.Text="Scan"  Margin="20"
-                    CornerRadius="20"
-                            
-                 WidthRequest="200" HeightRequest="45"  Clicked="btn_scan_Clicked" x:Name="btn_scan"/>
-        </StackLayout>
-    </StackLayout>
+                ToolTipProperties.Text="Scan"
+                Clicked="btn_scan_Clicked" 
+                CharacterSpacing="4"
+                />
+
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>
