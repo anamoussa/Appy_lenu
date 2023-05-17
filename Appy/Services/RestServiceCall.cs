@@ -42,7 +42,6 @@ public class RestServiceCall : IRestServiceCall
             SearchResult data = new();
             var client = new HttpClient();
             //      var x = encodeURIComponent("http://a.com/?q=query&n=10");
-            //  var s=HttpUtility.UrlEncode(search);
             string x = "";
             if (search.Contains(' '))
             {
@@ -69,7 +68,7 @@ public class RestServiceCall : IRestServiceCall
         }
         catch (Exception)
         {
-            throw;
+            return null;
         }
     }
 
@@ -95,7 +94,7 @@ public class RestServiceCall : IRestServiceCall
         }
         catch (Exception)
         {
-            throw;
+            return null;
         }
     }
 }

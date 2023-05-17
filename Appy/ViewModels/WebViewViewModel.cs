@@ -22,7 +22,6 @@ public partial class WebViewViewModel : BaseViewModel, IQueryAttributable
     private async Task<string> putDatain_webView(string search)
     {
         //  if (result is not null && result != "")
-
         if (String.IsNullOrEmpty(search))
             return null;
         var res = await _service.Search(search, "zzzzzzzz");
@@ -88,7 +87,7 @@ public partial class WebViewViewModel : BaseViewModel, IQueryAttributable
         if (string.IsNullOrEmpty(search))
             await Shell.Current.DisplayAlert("Error!", "Code Detection Result Equals Null!", "Cancle");
         var result = await putDatain_webView(search);
-        if (string.IsNullOrEmpty(search))
+        if (string.IsNullOrEmpty(result))
             await Shell.Current.DisplayAlert("Error!", "Search Result Equals Null!", "Cancle");
         Source = HttpUtility.UrlDecode(result);
     }
